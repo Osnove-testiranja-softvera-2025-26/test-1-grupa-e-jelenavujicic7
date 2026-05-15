@@ -1,0 +1,23 @@
+# Klase ekvivalencije
+# x: [0, 9], [10, 24], [25,29]
+# y: [0, 9], [10, 29]
+# z : [0,19], [20,29]
+# TypeField: Farm, Crop, Invalid
+# plantedCrop: yes, no
+
+x: -1, 0, 5, 9, 10, 17, 24, 25, 27, 29, 30
+y: -1, 0, 5, 9, 10, 19, 29, 30
+z: -1, 0, 10, 19, 20, 25, 29, 30
+TypeField: Farm, Crop, Invalid
+plantedCrops: yes, no
+valid: yes, no
+IF ( [x] > 29 OR [y] > 29 OR [z] > 29 OR [x] < 0 OR [y] < 0 OR [z] < 0 ) THEN [valid] = "no";
+IF ([TypeField] = "Farm" AND [x] < 30 AND [y] < 30 AND [z] < 30) THEN [valid] = "yes";
+
+IF ( [y] >= 10 AND [y] <= 29 AND [x] > 0 AND [x] < 30 AND [z] > 0 AND [z] <30) THEN [TypeField] = "Invalid" AND [valid] = "no";
+
+IF([TypeField] = "Crop" AND [plantedCrop] = "no") THEN [valid] = "yes";
+IF([TypeField] = "Crop" AND [plantedCrop] = "yes") THEN [valid] = "no";
+
+
+

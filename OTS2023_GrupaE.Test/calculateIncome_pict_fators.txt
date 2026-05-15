@@ -1,0 +1,17 @@
+# Klase ekvivalencije
+# PlantCrop [0, 5], [6,10], [10,250]
+# seed [0, 14], [15, 250]
+# Item: yes no
+
+plantCrop: 0, 3, 5, 6, 8, 10, 100, 250 
+seed: 0, 7, 14, 15, 100, 250
+item: yes, no
+rating: good, average, bad
+
+IF [PlantCrop] > 10 AND [Item] = "no"  AND [seed] < 15 THEN [rating] = "good";
+IF [PlantCrop] < 6  AND [Item] = "yes" AND [seed] >= 15 THEN [rating] = "good";
+
+IF [PlantCrop] < 6 AND [Item] = "yes" AND [seed] >= 15 THEN [rating] = "average";
+
+IF [PlantCrop] >= 6 AND [Item] = "no" AND [seed] < 10 THEN [rating] = "bad";
+IF [PlantCrop] < 6 AND [Item] = "no" AND [seed] < 10 THEN [rating] = "bad"; 
